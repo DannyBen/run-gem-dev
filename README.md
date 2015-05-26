@@ -1,6 +1,8 @@
 Run Gem Dev
 ===========
 
+[![Gem Version](https://badge.fury.io/rb/run-gem-dev.svg)](http://badge.fury.io/rb/run-gem-dev)
+
 [Runfile](https://github.com/DannyBen/runfile) tasks for gem developers.
 
 ## Install
