@@ -32,10 +32,10 @@ RunGemDev::Tasks.embed 'run-gem-dev'
 	run gem install
 	run gem publish
 	run gem test [<name>]
-
+	run gem yank [<version>]
 
 ## Todo
 
 - Docs
 - Tests
-- Yank `gem yank gemname -v 0.1.0`
+- build and --install

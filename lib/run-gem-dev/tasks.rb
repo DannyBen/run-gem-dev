@@ -29,7 +29,7 @@ module RunGemDev
 				system cmd
 			end
 
-			help "Publish gem"
+			help "Publish gem to rubygems"
 			action :publish do
 				gemfile = "gems/#{gemname}-#{gemver}.gem"
 				File.exist? gemfile or abort "File not found #{gemfile}"
@@ -37,6 +37,15 @@ module RunGemDev
 				say "Running: #{cmd}"
 				system cmd
 			end
+
+			usage "yank [<version>]"
+			help "Yank gem from rubygems"
+			action :yank do |args|
+				ver = args['<version>'] || gemver
+				cmd = "gem yank #{gemname} -v #{ver}"
+				say "Running: #{cmd}"
+				system cmd
+			end			
 
 			usage "test [<name>]"
 			help "Run all tests or a single test file"
