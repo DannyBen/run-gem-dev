@@ -1,0 +1,7 @@
+require "run-gem-dev"
+
+name    "My Project"
+summary "Update summary here"
+version "0.1.0"
+
+RunGemDev::Tasks.embed 'run-gem-dev'
