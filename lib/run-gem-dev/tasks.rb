@@ -10,25 +10,30 @@ module RunGemDev
 		usage  "build [--install]"
 		help   "Build gem from gemspec and move it to '#{gemdir}' folder.\nUse --install to also install it."
 		action :build do |args|
-			say "Building gem..."
+			say "Building gem"
 			cmd = "gem build #{gemname}.gemspec"	
 			say "Running: #{cmd}"
 			system cmd
-			say "Moving to #{gemdir}..."
+			say "Moving gem file to #{gemdir}"
 			files = Dir["*.gem"]
 			files.each {|f| FileUtils.mv f, gemdir }
 			args['--install'] and call "gem install"
 		end
 
-		help   "Install local gem"
-		action :install do
-			gemfile = "gems/#{gemname}-#{gemver}.gem"
-			cmd = "gem install #{gemfile}"
+		usage  "install [--remote]"
+		help   "Install gem from local gem file or from rubygems (--remote)."
+		action :install do |args|
+			if args['--remote']
+				cmd = "gem install #{gemname}"
+			else
+				gemfile = "gems/#{gemname}-#{gemver}.gem"
+				cmd = "gem install #{gemfile}"
+			end
 			say "Running: #{cmd}"
 			system cmd
 		end
 
-		help   "Publish gem to rubygems"
+		help   "Publish gem to rubygems. Make sure to 'run gem build' before you publish."
 		action :publish do
 			gemfile = "gems/#{gemname}-#{gemver}.gem"
 			File.exist? gemfile or abort "File not found #{gemfile}"
@@ -38,7 +43,7 @@ module RunGemDev
 		end
 
 		usage  "yank [<version>]"
-		help   "Yank gem from rubygems"
+		help   "Yank gem from rubygems."
 		action :yank do |args|
 			ver = args['<version>'] || gemver
 			cmd = "gem yank #{gemname} -v #{ver}"
@@ -47,7 +52,7 @@ module RunGemDev
 		end			
 
 		usage  "test [<name>]"
-		help   "Run all tests or a single test file"
+		help   "Run all tests or a single test file."
 		action :test do |args|
 			name = args['<name>'] || "*"
 			cmd = "ruby -Itest test/test_#{name}.rb"
