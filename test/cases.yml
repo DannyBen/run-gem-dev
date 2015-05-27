@@ -1,0 +1,17 @@
+---
+- cmd: run gem build
+  out: |-
+    Building gem...
+    Running: gem build run-gem-dev.gemspec
+      Successfully built RubyGem
+      Name: run-gem-dev
+      Version: %{version}
+      File: run-gem-dev-%{version}.gem
+    Moving to gems...
+- cmd: run gem install
+  out: |-
+    Running: gem install gems/run-gem-dev-%{version}.gem
+    Successfully installed run-gem-dev-%{version}
+    Parsing documentation for run-gem-dev-%{version}
+    Done installing documentation for run-gem-dev after 0 seconds
+    1 gem installed

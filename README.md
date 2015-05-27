@@ -37,5 +37,4 @@ RunGemDev::Tasks.embed 'run-gem-dev'
 ## Todo
 
 - Docs
-- Tests
-- build and --install
+- Add `init` (scaffold gemspec and folders)

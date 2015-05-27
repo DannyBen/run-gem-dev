@@ -1,7 +1,22 @@
 require "run-gem-dev"
+require "yaml"
 
 name    "My Project"
 summary "Update summary here"
 version "0.1.0"
 
-RunGemDev::Tasks.embed 'run-gem-dev'
+RunGemDev::tasks 'run-gem-dev'
+
+usage  "addtest <command>"
+help   "Add example case to test/cases.yml"
+action :addtest do |args|
+	casefile = 'test/cases.yml'
+	command = args['<command>']
+	cases = YAML.load_file casefile
+	cases or cases = []
+	new_case = {'cmd' => command}
+	new_case['out'] = `#{command}`.strip
+	cases << new_case
+	File.write(casefile, YAML.dump(cases))
+	say "Done"
+end

@@ -16,4 +16,5 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency 'runfile', '~> 0.3'
   s.add_development_dependency 'minitest', '~> 5.6'
+  s.add_development_dependency 'colsole', '~> 0'
 end
