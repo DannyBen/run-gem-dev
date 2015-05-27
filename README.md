@@ -31,8 +31,9 @@ RunGemDev::Tasks.embed 'run-gem-dev'
 	run gem build [<folder>]
 	run gem install
 	run gem publish
-	run gem test [<name>]
 	run gem yank [<version>]
+	run gem test [<name>]
+
 
 ## Todo
 
