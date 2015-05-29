@@ -42,7 +42,6 @@ RunGemDev::rdoc_tasks
 	run gem yank [<version>]
 	run test [<name>]
 	run rdoc [-- <options>...]
-	run addtest <command>
 
 ## Todo
 
