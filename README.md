@@ -20,22 +20,30 @@ name    "My Gem Runfile"
 summary "Tasks for my gem"
 version "0.1.0"
 
-RunGemDev::Tasks.embed 'run-gem-dev'
+# Add rubygems tasks (publish, install etc.)
+RunGemDev::gem_tasks 'my-gem-name'
+
+# Add test task (minitest)
+RunGemDev::test_tasks
+
+# Add rdoc task
+RunGemDev::rdoc_tasks
 
 # Your other tasks here
+# ...
 
 ```
 
 ## Available Tasks
 
-	run gem build [<folder>]
-	run gem install
+	run gem build [--install]
+	run gem install [--remote]
 	run gem publish
 	run gem yank [<version>]
-	run gem test [<name>]
-
+	run test [<name>]
+	run rdoc [-- <options>...]
+	run addtest <command>
 
 ## Todo
 
-- Docs
 - Add `init` (scaffold gemspec and folders)

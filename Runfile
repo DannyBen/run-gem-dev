@@ -1,11 +1,13 @@
 require "run-gem-dev"
 require "yaml"
 
-name    "My Project"
-summary "Update summary here"
-version "0.1.0"
+name    "Run Gem Dev"
+summary "Runfile tasks for gem developers"
+version RunGemDev::VERSION
 
-RunGemDev::tasks 'run-gem-dev'
+RunGemDev::gem_tasks 'run-gem-dev'
+RunGemDev::test_tasks
+RunGemDev::rdoc_tasks
 
 usage  "addtest <command>"
 help   "Add example case to test/cases.yml"

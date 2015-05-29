@@ -1,13 +1,13 @@
 ---
 - cmd: run gem build
   out: |-
-    Building gem...
+    Building gem
     Running: gem build run-gem-dev.gemspec
       Successfully built RubyGem
       Name: run-gem-dev
       Version: %{version}
       File: run-gem-dev-%{version}.gem
-    Moving to gems...
+    Moving gem file to gems
 - cmd: run gem install
   out: |-
     Running: gem install gems/run-gem-dev-%{version}.gem
@@ -15,3 +15,28 @@
     Parsing documentation for run-gem-dev-%{version}
     Done installing documentation for run-gem-dev after 0 seconds
     1 gem installed
+- cmd: run
+  out: |-
+    Usage:
+      run gem build [--install]
+      run gem install [--remote]
+      run gem publish
+      run gem yank [<version>]
+      run test [<name>]
+      run rdoc [-- <options>...]
+      run addtest <command>
+      run ( -h | --help | --version )
+- cmd: run --help
+  out: "Run Gem Dev 0.1.2\nRunfile tasks for gem developers \n\nUsage:\n  run gem
+    build [--install]\n  run gem install [--remote]\n  run gem publish\n  run gem
+    yank [<version>]\n  run test [<name>]\n  run rdoc [-- <options>...]\n  run addtest
+    <command>\n  run ( -h | --help | --version )\n\nCommands:\n  gem build [--install]\n
+    \     Build gem from gemspec and move it to 'gems' folder.\n      Use --install
+    to also install it.\n\n  gem install [--remote]\n      Install gem from local
+    gem file or from rubygems (--remote).\n\n  gem publish\n      Publish gem to rubygems.
+    Make sure to 'run gem build' before you\n      publish.\n\n  gem yank [<version>]\n
+    \     Yank gem from rubygems.\n\n  test [<name>]\n      Run all tests or a single
+    test file.\n\n  rdoc [-- <options>...]\n      Generate documentation using the
+    rdoc command line tool. To pass\n      arguments to rdoc, place them after '--'.\n\n
+    \ addtest <command>\n      Add example case to test/cases.yml\n\nOptions:\n  -h
+    --help\n      Show this screen\n\n  --version\n      Show version"
