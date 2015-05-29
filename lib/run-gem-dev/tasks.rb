@@ -24,11 +24,11 @@ module RunGemDev
 		usage  "build [--install]"
 		help   "Build gem from gemspec and move it to '#{gemdir}' folder.\nUse --install to also install it."
 		action :build do |args|
-			say "Building gem"
+			say "!txtgrn!Building gem"
 			cmd = "gem build #{gemname}.gemspec"	
-			say "Running: #{cmd}"
+			say "!txtgrn!Running: !txtpur!#{cmd}"
 			system cmd
-			say "Moving gem file to #{gemdir}"
+			say "!txtgrn!Moving gem file to #{gemdir}"
 			files = Dir["*.gem"]
 			files.each {|f| FileUtils.mv f, gemdir }
 			args['--install'] and call "gem install"
@@ -43,7 +43,7 @@ module RunGemDev
 				gemfile = "gems/#{gemname}-#{gemver}.gem"
 				cmd = "gem install #{gemfile}"
 			end
-			say "Running: #{cmd}"
+			say "!txtgrn!Running: !txtpur!#{cmd}"
 			system cmd
 		end
 
@@ -52,7 +52,7 @@ module RunGemDev
 			gemfile = "gems/#{gemname}-#{gemver}.gem"
 			File.exist? gemfile or abort "File not found #{gemfile}"
 			cmd = "gem push #{gemfile}"
-			say "Running: #{cmd}"
+			say "!txtgrn!Running: !txtpur!#{cmd}"
 			system cmd
 		end
 
@@ -61,7 +61,7 @@ module RunGemDev
 		action :yank do |args|
 			ver = args['<version>'] || gemver
 			cmd = "gem yank #{gemname} -v #{ver}"
-			say "Running: #{cmd}"
+			say "!txtgrn!Running: !txtpur!#{cmd}"
 			system cmd
 		end
 		
@@ -75,7 +75,7 @@ module RunGemDev
 		action :test do |args|
 			name = args['<name>'] || "*"
 			cmd = "ruby -Itest test/test_#{name}.rb"
-			say "Running: #{cmd}"
+			say "!txtgrn!Running: !txtpur!#{cmd}"
 			system cmd
 		end
 	end
@@ -91,7 +91,7 @@ module RunGemDev
 			options = inopts unless inopts.empty?
 			options = options.join(' ')
 			cmd = "rdoc #{options} #{files}"
-			say "Running: #{cmd}"
+			say "!txtgrn!Running: !txtpur!#{cmd}"
 			system cmd
 		end
 	end
