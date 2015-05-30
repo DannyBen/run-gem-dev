@@ -5,6 +5,8 @@
 # 2. Tests tasks (using minitest)
 # 3. Rdoc tasks
 
+require 'fileutils'
+
 module RunGemDev
 
 	@@default_rdoc_options = [
