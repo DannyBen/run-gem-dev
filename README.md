@@ -2,6 +2,7 @@ Run Gem Dev
 ===========
 
 [![Gem Version](https://badge.fury.io/rb/run-gem-dev.svg)](http://badge.fury.io/rb/run-gem-dev)
+[![Build Status](https://travis-ci.org/DannyBen/run-gem-dev.svg?branch=master)](https://travis-ci.org/DannyBen/run-gem-dev)
 
 [Runfile](https://github.com/DannyBen/runfile) tasks for gem developers.
 
