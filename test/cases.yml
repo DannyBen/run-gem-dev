@@ -37,6 +37,5 @@
   chk: 'regex'
   out: |-
     Running: gem install run-gem-dev
-    Successfully installed run-gem-dev-\d+.\d+.\d+
     .*
     1 gem installed
