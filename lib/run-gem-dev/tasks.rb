@@ -69,12 +69,16 @@ module RunGemDev
 	end
 
 	# Add minitest task
-	def self.test_tasks
+	def self.minitest_tasks(pattern="./test/test_*.rb")
 		usage  "test [<name>]"
 		help   "Run all tests or a single test file."
 		action :test do |args|
-			name = args['<name>'] || "*"
-			cmd = "ruby -Itest test/test_#{name}.rb"
+			if args['<name>'] 
+				file = pattern.sub "*", args['<name>']
+				cmd = "ruby -Itest #{file}" 
+			else
+				cmd = "ruby -e 'Dir[\"#{pattern}\"].each { |path| require path }' #{pattern}"
+			end
 			say "!txtgrn!Running: !txtpur!#{cmd}"
 			system cmd
 		end

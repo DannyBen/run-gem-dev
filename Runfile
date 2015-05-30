@@ -6,7 +6,7 @@ summary "Runfile tasks for gem developers"
 version RunGemDev::VERSION
 
 RunGemDev::gem_tasks 'run-gem-dev'
-RunGemDev::test_tasks
+RunGemDev::minitest_tasks
 RunGemDev::rdoc_tasks
 
 usage  "addtest <command>"
