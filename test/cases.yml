@@ -39,5 +39,5 @@
     Running: gem install run-gem-dev
     Successfully installed run-gem-dev-\d+.\d+.\d+
     Parsing documentation for run-gem-dev-\d+.\d+.\d+
-    Done installing documentation for run-gem-dev after 0 seconds
+    .*
     1 gem installed
