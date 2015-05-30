@@ -1,5 +1,5 @@
 ---
-- cmd: run gem build
+- cmd: bundle exec run gem build
   out: |-
     Building gem
     Running: gem build run-gem-dev.gemspec
@@ -8,14 +8,14 @@
       Version: %{version}
       File: run-gem-dev-%{version}.gem
     Moving gem file to gems
-- cmd: run gem install
+- cmd: bundle exec run gem install
   out: |-
     Running: gem install gems/run-gem-dev-%{version}.gem
     Successfully installed run-gem-dev-%{version}
     Parsing documentation for run-gem-dev-%{version}
     Done installing documentation for run-gem-dev after 0 seconds
     1 gem installed
-- cmd: run
+- cmd: bundle exec run
   out: |-
     Usage:
       run gem build [--install]
@@ -26,7 +26,7 @@
       run rdoc [-- <options>...]
       run addtest <command>
       run ( -h | --help | --version )
-- cmd: run --help
+- cmd: bundle exec run --help
   out: "Run Gem Dev %{version}\nRunfile tasks for gem developers \n\nUsage:\n  run gem
     build [--install]\n  run gem install [--remote]\n  run gem publish\n  run gem
     yank [<version>]\n  run test [<name>]\n  run rdoc [-- <options>...]\n  run addtest
