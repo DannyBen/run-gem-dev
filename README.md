@@ -24,7 +24,7 @@ version "0.1.0"
 RunGemDev::gem_tasks 'my-gem-name'
 
 # Add test task (minitest)
-RunGemDev::test_tasks
+RunGemDev::minitest_tasks
 
 # Add rdoc task
 RunGemDev::rdoc_tasks
@@ -43,6 +43,3 @@ RunGemDev::rdoc_tasks
 	run test [<name>]
 	run rdoc [-- <options>...]
 
-## Todo
-
-- Add `init` (scaffold gemspec and folders)

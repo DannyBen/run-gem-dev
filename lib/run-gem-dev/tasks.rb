@@ -75,12 +75,14 @@ module RunGemDev
 		action :test do |args|
 			if args['<name>'] 
 				file = pattern.sub "*", args['<name>']
-				cmd = "ruby -Itest #{file}" 
+				say "!txtgrn!Using: !txtpur!#{file}"
+				require file
 			else
-				cmd = "ruby -e 'Dir[\"#{pattern}\"].each { |path| require path }' #{pattern}"
+				Dir[pattern].each do |file| 
+					say "!txtgrn!Using: !txtpur!#{file}"
+					require file
+				end
 			end
-			say "!txtgrn!Running: !txtpur!#{cmd}"
-			system cmd
 		end
 	end
 
