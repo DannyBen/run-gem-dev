@@ -9,3 +9,6 @@ language: ruby
 
 # custom test script
 script: bundle exec run test
+
+notifications:
+  email: false
