@@ -18,12 +18,12 @@
       run test [<name>]
       run rdoc [-- <options>...]
       run addtest <command>
-      run ( -h | --help | --version )
+      run (-h|--help|--version)
 - cmd: bundle exec run --help
-  out: "Run Gem Dev %{version}\nRunfile tasks for gem developers \n\nUsage:\n  run
+  out: "Run Gem Dev %{version}\nRunfile tasks for gem developers\n\nUsage:\n  run
     gem build [--install]\n  run gem install [--remote]\n  run gem publish\n  run
     gem yank [<version>]\n  run test [<name>]\n  run rdoc [-- <options>...]\n  run
-    addtest <command>\n  run ( -h | --help | --version )\n\nCommands:\n  gem build
+    addtest <command>\n  run (-h|--help|--version)\n\nCommands:\n  gem build
     [--install]\n      Build gem from gemspec and move it to 'gems' folder.\n      Use
     --install to also install it.\n\n  gem install [--remote]\n      Install gem from
     local gem file or from rubygems (--remote).\n\n  gem publish\n      Publish gem
@@ -32,7 +32,7 @@
     all tests or a single test file.\n\n  rdoc [-- <options>...]\n      Generate documentation
     using the rdoc command line tool. To pass\n      arguments to rdoc, place them
     after '--'.\n\n  addtest <command>\n      Add example case to test/cases.yml\n\nOptions:\n
-    \ -h --help\n      Show this screen\n\n  --version\n      Show version"
+    \ -h --help\n      Show this screen\n\n  --version\n      Show version number"
 - cmd: bundle exec run gem install --remote
   chk: 'regex'
   out: |-

@@ -1,2 +1,5 @@
 require "run-gem-dev/version"
-require "run-gem-dev/tasks"
+require "run-gem-dev/gem_tasks"
+require "run-gem-dev/rdoc_tasks"
+require "run-gem-dev/minitest_tasks"
+require "run-gem-dev/rspec_tasks"

@@ -3,11 +3,9 @@ require 'run-gem-dev/version'
 require 'yaml'
 require 'colsole'
 
-# minitest reference
-# http://www.mattsears.com/articles/2011/12/10/minitest-quick-reference
-
 class RunGemDevTest < Minitest::Test
 	include Colsole
+	
 	def test_cases
 		conf = YAML.load_file 'test/cases.yml'
 		conf.each do |test|
@@ -15,7 +13,7 @@ class RunGemDevTest < Minitest::Test
 			output = `#{test['cmd']}`.strip 
 			expected = test['out'] % { version: RunGemDev::VERSION }
 			if test['chk'] == 'regex'
-				assert_match /#{expected}/, output
+				assert_match /#{expected}/m, output
 			else
 				assert_equal expected, output
 			end

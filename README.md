@@ -27,6 +27,9 @@ RunGemDev::gem_tasks 'my-gem-name'
 # Add test task (minitest)
 RunGemDev::minitest_tasks
 
+# Add rspec task
+RunGemDev::rspec_tasks
+
 # Add rdoc task
 RunGemDev::rdoc_tasks
 
@@ -42,5 +45,6 @@ RunGemDev::rdoc_tasks
 	run gem publish
 	run gem yank [<version>]
 	run test [<name>]
+	run spec [<name>]
 	run rdoc [-- <options>...]
 

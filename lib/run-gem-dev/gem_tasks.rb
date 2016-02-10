@@ -1,21 +1,7 @@
-# This module provides Runfile tasks for gem developers.
-# The tasks are divided to three categories:
-#
-# 1. Rubygems tasks (publish, build etc)
-# 2. Tests tasks (using minitest)
-# 3. Rdoc tasks
-
 require 'fileutils'
 
 module RunGemDev
 
-	@@default_rdoc_options = [
-		"--main README.md",
-		"--all",
-	]
-
-	
-	# Add rubygems tasks: build, install, publish and yank
 	def self.gem_tasks(gemname, gemdir="gems")
 		command "gem"
 
@@ -32,6 +18,7 @@ module RunGemDev
 			system cmd
 			say "!txtgrn!Moving gem file to #{gemdir}"
 			files = Dir["*.gem"]
+			Dir.exist? gemdir or FileUtils.mkdir gemdir
 			files.each {|f| FileUtils.mv f, gemdir }
 			args['--install'] and call "gem install"
 		end
@@ -70,37 +57,4 @@ module RunGemDev
 		endcommand
 	end
 
-	# Add minitest task
-	def self.minitest_tasks(pattern="./test/test_*.rb")
-		usage  "test [<name>]"
-		help   "Run all tests or a single test file."
-		action :test do |args|
-			if args['<name>'] 
-				file = pattern.sub "*", args['<name>']
-				say "!txtgrn!Using: !txtpur!#{file}"
-				require file
-			else
-				Dir[pattern].each do |file| 
-					say "!txtgrn!Using: !txtpur!#{file}"
-					require file
-				end
-			end
-		end
-	end
-
-	# Add rdoc task
-	def self.rdoc_tasks(files=nil, options=@@default_rdoc_options)
-		files or files = Dir['**/*.{rb,md}']
-		files = "'" + files.join("' '") + "'"
-		usage  "rdoc [-- <options>...]"
-		help   "Generate documentation using the rdoc command line tool. To pass arguments to rdoc, place them after '--'."
-		action :rdoc do |args|
-			inopts = args['<options>']
-			options = inopts unless inopts.empty?
-			options = options.join(' ')
-			cmd = "rdoc #{options} #{files}"
-			say "!txtgrn!Running: !txtpur!#{cmd}"
-			system cmd
-		end
-	end
 end

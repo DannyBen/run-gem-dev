@@ -1,5 +1,3 @@
 module RunGemDev
-
-	# Version constant, used by gemspec
-	VERSION = "0.2.1"
+	VERSION = "0.3.0"
 end
