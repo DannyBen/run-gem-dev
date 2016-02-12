@@ -6,6 +6,12 @@ Run Gem Dev
 
 [Runfile](https://github.com/DannyBen/runfile) tasks for gem developers.
 
+---
+
+**Deprecation Notice**: This gem is being phased out in favor of [Runfile Tasks]
+
+---
+
 ## Install
 
 	$ gem install run-gem-dev
@@ -48,3 +54,6 @@ RunGemDev::rdoc_tasks
 	run spec [<name>]
 	run rdoc [-- <options>...]
 
+
+---
+[Runfile Tasks]: https://github.com/DannyBen/runfile-tasks
